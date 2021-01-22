@@ -1,17 +1,26 @@
-name: scp files
-on: [push]
-jobs:
 
+name: Example usage
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
   build:
-    name: Build
+
     runs-on: ubuntu-latest
+
     steps:
-    - name: copy file via ssh password
-      uses:  SreeramPrabhakar/scp-action@master
-      with:
-        host: "ec2-34-230-11-27.compute-1.amazonaws.com"
-        username: tendu
-        password: tendu
-        port: 22
-        source: "tests/a.txt,tests/b.txt"
-        target: "test"
+      -
+        uses: actions/checkout@v1
+
+      -
+        uses: SreeramPrabhakar/scp-action@master
+        with:
+          local: "./*"
+          remote: "/home/tendu"
+          host: ec2-34-230-11-27.compute-1.amazonaws.com
+          port: 22
+          user: tendu
+          key: ${{ secrets.KEY }}
