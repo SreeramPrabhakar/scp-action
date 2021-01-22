@@ -1,4 +1,4 @@
-name: scp copy
+name: scp files
 on: [push]
 jobs:
 
@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: copy file via ssh password
-      uses: ./
+      uses:  SreeramPrabhakar/scp-action@master
       with:
         host: ${{ secrets.HOSTNAME }}
         username: ${{ secrets.USERNAME }}
