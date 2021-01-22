@@ -6,12 +6,12 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-    - name: copy file via ssh key
-      uses: SreeramPrabhakar/scp-action@master
+    - name: copy file via ssh password
+      uses: ./
       with:
         host: ${{ secrets.HOSTNAME }}
         username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.KEY }}
+        password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         source: "tests/a.txt,tests/b.txt"
         target: "test"
