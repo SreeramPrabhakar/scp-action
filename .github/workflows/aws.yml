@@ -9,9 +9,9 @@ jobs:
     - name: copy file via ssh password
       uses:  SreeramPrabhakar/scp-action@master
       with:
-        host: ${{ secrets.HOSTNAME }}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
-        port: ${{ secrets.PORT }}
+        host: "ec2-34-230-11-27.compute-1.amazonaws.com"
+        username: tendu
+        password: tendu
+        port: 22
         source: "tests/a.txt,tests/b.txt"
         target: "test"
