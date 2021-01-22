@@ -1,0 +1,18 @@
+name: scp files
+on: [push]
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: copy file via ssh key password
+      uses: SreeramPrabhakar/scp-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PORT }}
+        port: ${{ secrets.KEY }}
+        source: "tests/a.txt,tests/b.txt"
+        target: "test"
