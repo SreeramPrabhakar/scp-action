@@ -12,7 +12,7 @@ jobs:
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PORT }}
-        port: ${{ secrets.KEY }}
+        port: ${{ secrets.PORT }}
+        key: ${{ secrets.KEY }}
         source: "tests/a.txt,tests/b.txt"
         target: "test"
